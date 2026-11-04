@@ -1,5 +1,7 @@
 # TaskFlow API
 
+![CI Status](https://github.com/16lv/taskflow-api/actions/workflows/ci.yml/badge.svg)
+
 A RESTful project and task workflow management backend built with **Java 21** and **Spring Boot 3.3**. Designed to model structured engineering sprints with deterministic task state transitions, stateless JWT authentication, role-based access control, and RFC 7807 `ProblemDetail` error contracts.
 
 ## Why It Was Built

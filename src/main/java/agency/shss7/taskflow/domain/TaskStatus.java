@@ -7,6 +7,7 @@ public enum TaskStatus {
     DONE,
     ARCHIVED;
 
+    // Prevent skipping steps (e.g. jumping straight from BACKLOG to DONE without starting/reviewing)
     public boolean canTransitionTo(TaskStatus target) {
         if (this == target) {
             return true;

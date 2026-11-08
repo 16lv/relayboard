@@ -1,12 +1,12 @@
-﻿# RelayBoard
+# RelayBoard
 
 ![CI Status](https://github.com/16lv/relayboard/actions/workflows/ci.yml/badge.svg)
 
-A RESTful project and task workflow management backend built with **Java 21** and **Spring Boot 3.3**. Designed to model structured engineering sprints with deterministic task state transitions, stateless JWT authentication, role-based access control, and RFC 7807 `ProblemDetail` error contracts.
+**RelayBoard** is a RESTful project and task workflow management backend built with **Java 21** and **Spring Boot 3.3**. It models engineering sprints with deterministic task state transitions, stateless JWT authentication, role-based access control, and RFC 7807 `ProblemDetail` error contracts.
 
 ## Why It Was Built
 
-Many sample task trackers treat status updates as unrestricted string mutations and return inconsistent error payloads when validation fails. TaskFlow API enforces a domain-level finite state machine (`BACKLOG` -> `IN_PROGRESS` -> `IN_REVIEW` -> `DONE` / `ARCHIVED`), pairs multi-parameter JPA filtering with pagination, and ships with full `MockMvc` integration coverage so the API can be run and verified out of the box.
+Many sample task trackers treat status updates as unrestricted string mutations and return inconsistent error payloads when validation fails. RelayBoard enforces a domain-level finite state machine (`BACKLOG` -> `IN_PROGRESS` -> `IN_REVIEW` -> `DONE` / `ARCHIVED`), pairs multi-parameter JPA filtering with pagination, and ships with full `MockMvc` integration coverage so the API can be run and verified out of the box.
 
 ## Main Features
 
@@ -26,14 +26,14 @@ Many sample task trackers treat status updates as unrestricted string mutations 
 
 ## Architecture Overview
 
-```
+```text
 src/main/java/agency/shss7/taskflow
-â”œâ”€â”€ controller/   # REST controllers & RFC 7807 GlobalExceptionHandler
-â”œâ”€â”€ domain/       # JPA entities (UserAccount, Project, TaskItem) & state machine enums
-â”œâ”€â”€ dto/          # Immutable Java 21 record request/response payloads with Jakarta validation
-â”œâ”€â”€ repository/   # Spring Data JPA repositories & parameterized JPQL search queries
-â”œâ”€â”€ security/     # Stateless JWT filter, token service, and SecurityFilterChain config
-â””â”€â”€ service/      # Transactional domain services (AuthService, WorkflowService)
+├── controller/   # REST controllers & RFC 7807 GlobalExceptionHandler
+├── domain/       # JPA entities (UserAccount, Project, TaskItem) & state machine enums
+├── dto/          # Immutable Java 21 record request/response payloads with Jakarta validation
+├── repository/   # Spring Data JPA repositories & parameterized JPQL search queries
+├── security/     # Stateless JWT filter, token service, and SecurityFilterChain config
+└── service/      # Transactional domain services (AuthService, WorkflowService)
 ```
 
 ## Getting Started
@@ -115,4 +115,3 @@ curl -X PATCH http://localhost:8080/api/v1/tasks/1/status \
 
 - Token revocation currently relies on short JWT TTLs; adding a Redis-backed refresh token rotation store is a natural next step.
 - Project membership is currently workspace-wide for authenticated users; per-project ACL tables would allow finer-grained multi-tenant isolation.
-

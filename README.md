@@ -13,7 +13,7 @@ Many sample task trackers treat status updates as unrestricted string mutations 
 - **Stateless JWT Authentication & RBAC:** BCrypt password hashing, HMAC-SHA256 signed JWT tokens (`/api/v1/auth/register`, `/api/v1/auth/login`), and role claims (`MEMBER`, `MAINTAINER`, `ADMIN`).
 - **Enforced Workflow State Machine:** Domain validation inside `TaskStatus` prevents invalid jumps (such as moving a task directly from `BACKLOG` to `DONE` without entering `IN_PROGRESS`), returning HTTP `422 Unprocessable Entity` with structured diagnostic details.
 - **Multi-Criteria Filtering & Pagination:** Query tasks across project ID, status, priority, assignee, and case-insensitive title substring (`/api/v1/tasks?projectId=1&status=IN_PROGRESS&priority=HIGH&q=migration&page=0&size=20`).
-- **RFC 7807 Error Responses:** `@RestControllerAdvice` maps Bean Validation errors, entity lookups, duplicate project codes, and illegal workflow transitions to standardized `ProblemDetail` payloads.
+- **RFC 7807 Error Responses:** `@RestControllerAdvice` maps Bean Validation errors, entity lookups, duplicate project codes, and illegal workflow transitions to standardised `ProblemDetail` payloads.
 - **OpenAPI 3 / Swagger UI:** Auto-generated interactive documentation at `/swagger-ui.html` and `/v3/api-docs`.
 
 ## Tech Stack
@@ -31,7 +31,7 @@ src/main/java/agency/shss7/taskflow
 ├── controller/   # REST controllers & RFC 7807 GlobalExceptionHandler
 ├── domain/       # JPA entities (UserAccount, Project, TaskItem) & state machine enums
 ├── dto/          # Immutable Java 21 record request/response payloads with Jakarta validation
-├── repository/   # Spring Data JPA repositories & parameterized JPQL search queries
+├── repository/   # Spring Data JPA repositories & parameterised JPQL search queries
 ├── security/     # Stateless JWT filter, token service, and SecurityFilterChain config
 └── service/      # Transactional domain services (AuthService, WorkflowService)
 ```

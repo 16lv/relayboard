@@ -1,6 +1,6 @@
-# TaskFlow API
+﻿# RelayBoard
 
-![CI Status](https://github.com/16lv/taskflow-api/actions/workflows/ci.yml/badge.svg)
+![CI Status](https://github.com/16lv/relayboard/actions/workflows/ci.yml/badge.svg)
 
 A RESTful project and task workflow management backend built with **Java 21** and **Spring Boot 3.3**. Designed to model structured engineering sprints with deterministic task state transitions, stateless JWT authentication, role-based access control, and RFC 7807 `ProblemDetail` error contracts.
 
@@ -28,12 +28,12 @@ Many sample task trackers treat status updates as unrestricted string mutations 
 
 ```
 src/main/java/agency/shss7/taskflow
-├── controller/   # REST controllers & RFC 7807 GlobalExceptionHandler
-├── domain/       # JPA entities (UserAccount, Project, TaskItem) & state machine enums
-├── dto/          # Immutable Java 21 record request/response payloads with Jakarta validation
-├── repository/   # Spring Data JPA repositories & parameterized JPQL search queries
-├── security/     # Stateless JWT filter, token service, and SecurityFilterChain config
-└── service/      # Transactional domain services (AuthService, WorkflowService)
+â”œâ”€â”€ controller/   # REST controllers & RFC 7807 GlobalExceptionHandler
+â”œâ”€â”€ domain/       # JPA entities (UserAccount, Project, TaskItem) & state machine enums
+â”œâ”€â”€ dto/          # Immutable Java 21 record request/response payloads with Jakarta validation
+â”œâ”€â”€ repository/   # Spring Data JPA repositories & parameterized JPQL search queries
+â”œâ”€â”€ security/     # Stateless JWT filter, token service, and SecurityFilterChain config
+â””â”€â”€ service/      # Transactional domain services (AuthService, WorkflowService)
 ```
 
 ## Getting Started
@@ -115,3 +115,4 @@ curl -X PATCH http://localhost:8080/api/v1/tasks/1/status \
 
 - Token revocation currently relies on short JWT TTLs; adding a Redis-backed refresh token rotation store is a natural next step.
 - Project membership is currently workspace-wide for authenticated users; per-project ACL tables would allow finer-grained multi-tenant isolation.
+

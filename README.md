@@ -1,12 +1,12 @@
-# RelayBoard
+# Spring Workflow API (spring-workflow-api)
 
-![CI Status](https://github.com/16lv/relayboard/actions/workflows/ci.yml/badge.svg)
+![CI Status](https://github.com/16lv/spring-workflow-api/actions/workflows/ci.yml/badge.svg)
 
-**RelayBoard** is a RESTful project and task workflow management backend built with **Java 21** and **Spring Boot 3.3**. It models engineering sprints with deterministic task state transitions, stateless JWT authentication, role-based access control, and RFC 7807 `ProblemDetail` error contracts.
+**Spring Workflow API** ($(System.Collections.Hashtable.newRepo)) is a RESTful project and task workflow management backend built with **Java 21** and **Spring Boot 3.3**. It models engineering sprints with deterministic task state transitions, stateless JWT authentication, role-based access control, and RFC 7807 `ProblemDetail` error contracts.
 
 ## Why It Was Built
 
-Many sample task trackers treat status updates as unrestricted string mutations and return inconsistent error payloads when validation fails. RelayBoard enforces a domain-level finite state machine (`BACKLOG` -> `IN_PROGRESS` -> `IN_REVIEW` -> `DONE` / `ARCHIVED`), pairs multi-parameter JPA filtering with pagination, and ships with full `MockMvc` integration coverage so the API can be run and verified out of the box.
+Many sample task trackers treat status updates as unrestricted string mutations and return inconsistent error payloads when validation fails. Spring Workflow API enforces a domain-level finite state machine (`BACKLOG` -> `IN_PROGRESS` -> `IN_REVIEW` -> `DONE` / `ARCHIVED`), pairs multi-parameter JPA filtering with pagination, and ships with full `MockMvc` integration coverage so the API can be run and verified out of the box.
 
 ## Main Features
 
